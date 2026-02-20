@@ -1,16 +1,29 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
 import { data } from "../data/data";
-import { RxExternalLink } from "react-icons/rx";
+import { RxChevronLeft, RxChevronRight, RxExternalLink } from "react-icons/rx";
 import { AiOutlineGithub } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const WorkCard = () => {
   const reversedData = [...data].reverse();
+  const scrollerRefs = useRef({});
+
+  const scrollImages = (id, direction) => {
+    const scroller = scrollerRefs.current[id];
+    if (!scroller) return;
+
+    scroller.scrollBy({
+      left: direction === "left" ? -320 : 320,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <>
       {reversedData.map((data) => {
+        const screenshots = data.images?.length ? data.images : [data.img];
+
         return (
           <div
             data-aos="zoom-in"
@@ -18,13 +31,41 @@ const WorkCard = () => {
             className="flex flex-col justify-center items-center gap-4"
           >
             <POPUP className="img-content relative">
-              <div className="h-[280px] w-[380px] hover:scale-125 transition duration-500 cursor-pointer shadow-xl rounded-md overflow-hidden sm:h-[260px] sm:w-[92%] sm:bg-cover mx-auto ">
-                <img
-                  src={data.img}
-                  alt={data.title}
-                  className=" object-fit w-full h-full hover:scale-125 transition duration-500 cursor-pointer"
-                />
+              <div
+                ref={(element) => {
+                  scrollerRefs.current[data.id] = element;
+                }}
+                className="h-[280px] w-[380px] transition duration-500 cursor-pointer shadow-xl rounded-md overflow-x-auto overflow-y-hidden sm:h-[260px] sm:w-[92%] sm:bg-cover mx-auto snap-x snap-mandatory scroll-smooth"
+              >
+                <div className="flex h-full w-full">
+                  {screenshots.map((img, index) => (
+                    <img
+                      key={`${data.id}-${index}`}
+                      src={img}
+                      alt={`${data.title} screenshot ${index + 1}`}
+                      className="min-w-full h-full object-contain bg-white snap-start"
+                    />
+                  ))}
+                </div>
               </div>
+
+              <button
+                type="button"
+                onClick={() => scrollImages(data.id, "left")}
+                className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 border rounded-full p-2 shadow-md"
+                aria-label="Previous screenshot"
+              >
+                <RxChevronLeft className="text-black w-5 h-5" />
+              </button>
+
+              <button
+                type="button"
+                onClick={() => scrollImages(data.id, "right")}
+                className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 border rounded-full p-2 shadow-md"
+                aria-label="Next screenshot"
+              >
+                <RxChevronRight className="text-black w-5 h-5" />
+              </button>
 
               <div
                 className={` popup w-full  h-[280px] shadow-xl rounded-md overflow-hidden sm:h-[260px] sm:w-[92%] p-4`}
@@ -67,11 +108,6 @@ export default WorkCard;
 
 const POPUP = styled.div`
   position: relative;
-  img {
-    &:hover {
-      transform: scaleX(2);
-    }
-  }
   .popup {
     position: absolute;
     top: 0;

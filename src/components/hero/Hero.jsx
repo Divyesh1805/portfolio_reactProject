@@ -1,10 +1,9 @@
 import React from "react";
 import {
-  AiFillTwitterCircle,
   AiFillGithub,
-  AiFillInstagram,
+  AiOutlineWhatsApp,
 } from "react-icons/ai";
-import { FaFacebook, FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
 import { FiDownload } from "react-icons/fi";
 import { FaPlay } from "react-icons/fa";
 import { TypeAnimation } from "react-type-animation";
@@ -28,7 +27,7 @@ const Hero = () => {
               sequence={[
                 "Web Developer",
                 2000,
-                "Freelancer",
+                "Full Stack Developer- MERN",
                 2000,
                 "",
               ]}
@@ -46,7 +45,7 @@ const Hero = () => {
           </div>
           <div data-aos="fade-up" className="buttons flex gap-5">
             <a
-              href=""
+              href="#contact"
               className=" bg-black text-[1rem] text-white px-10 py-2 sm:px-8 rounded-lg font-bold  hover:text-yellow-500"
             >
               <span> Hire Me</span>
@@ -68,35 +67,27 @@ const Hero = () => {
               className=" flex gap-5"
             >
               <li>
-                <a href="https://github.com/Divyesh1805">
+                <a href="https://github.com/Divyesh1805" target="_blank" rel="noreferrer">
                   {" "}
                   <AiFillGithub className=" h-[1.8rem] w-[1.8rem] text-xl hover:scale-125" />{" "}
                 </a>
               </li>
               <li>
-                <a href="https://www.linkedin.com/in/divyesh-gangwal-96572a1a1/">
+                <a href="https://www.linkedin.com/in/divyesh-gangwal-96572a1a1/" target="_blank" rel="noreferrer">
                   {" "}
                   <FaLinkedinIn className=" h-[1.8rem] w-[1.8rem] text-xl hover:scale-125 " />{" "}
                 </a>
               </li>
               <li>
-                <a href="https://instagram.com/divyesh_gangwal1?igshid=MzRlODBiNWFlZA==">
+                <a
+                  href="https://wa.me/919479482107?text=Hi%20Divyesh%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project."
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   {" "}
-                  <AiFillInstagram className=" h-[1.8rem] w-[1.8rem] text-xl hover:scale-125  " />{" "}
+                  <AiOutlineWhatsApp className=" h-[1.8rem] w-[1.8rem] text-xl hover:scale-125  " />{" "}
                 </a>
               </li>
-              {/* <li>
-                <a href="">
-                  {" "}
-                  <FaFacebook className=" h-[1.8rem] w-[1.8rem] text-xl hover:scale-125  " />{" "}
-                </a>
-              </li>
-              <li>
-                <a href="">
-                  {" "}
-                  <AiFillTwitterCircle className=" h-[1.8rem] w-[1.8rem] text-xl hover:scale-125  " />{" "}
-                </a>
-              </li> */}
             </ul>
           </div>
         </div>
@@ -105,8 +96,8 @@ const Hero = () => {
             <img
             data-aos="fade-up"
               className=" h-[90%]  w-full object-cover md:h-[95%] md:m-auto sm:m-0"
-              src='https://i.postimg.cc/W4BbxRBW/profile.png'
-              // src={mine}
+              src='https://i.postimg.cc/G3QLKhjy/1766225141024.jpg'  
+              // src={mine} https://i.postimg.cc/52zXNWwN/nw-Image.jpg
               alt="mine"
             />
             <div className=" absolute bottom-10 md:bottom-3 right-8 md:right-2">

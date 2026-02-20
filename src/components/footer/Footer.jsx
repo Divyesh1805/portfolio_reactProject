@@ -1,7 +1,6 @@
 import React from "react";
-import { FaTelegramPlane } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
-import { RiInstagramFill } from "react-icons/ri";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -15,7 +14,9 @@ const Footer = () => {
           <a 
           data-aos="fade-up" data-aos-duration="1200"
 
-            href=""
+            href="https://wa.me/919479482107?text=Hi%20Divyesh%2C%20I%20visited%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project."
+            target="_blank"
+            rel="noreferrer"
             className="box font-medium text-white  flex items-center justify-center flex-col"
           >
             <IoLogoWhatsapp className=" text-black text-3xl hover:scale-125 cursor-pointer" />
@@ -24,15 +25,28 @@ const Footer = () => {
           <a 
           data-aos="fade-up" data-aos-duration="1400"
 
-            href=""
+            href="https://www.linkedin.com/in/divyesh-gangwal-96572a1a1/"
+            target="_blank"
+            rel="noreferrer"
             className="box font-medium text-white  flex items-center justify-center flex-col"
           >
-            <RiInstagramFill className=" text-black text-3xl hover:scale-125 cursor-pointer" />
-            <p>Instagram</p>
+            <FaLinkedinIn className=" text-black text-3xl hover:scale-125 cursor-pointer" />
+            <p>LinkedIn</p>
+          </a>
+          <a
+            data-aos="fade-up"
+            data-aos-duration="1600"
+            href="https://github.com/Divyesh1805"
+            target="_blank"
+            rel="noreferrer"
+            className="box font-medium text-white  flex items-center justify-center flex-col"
+          >
+            <FaGithub className=" text-black text-3xl hover:scale-125 cursor-pointer" />
+            <p>GitHub</p>
           </a>
         </div>
         <div className="sm:text-[12px]">
-          | divyeshgangwal@gmail.com
+          | divyeshgangwal@gmail.com | +91 9479482107 
           <a href="#"></a> |
         </div>
       </div>
